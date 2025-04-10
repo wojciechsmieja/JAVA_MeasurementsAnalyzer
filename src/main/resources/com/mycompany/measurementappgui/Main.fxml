@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.measurementappgui.MainController">
+   <children>
+      <Accordion layoutX="224.0" layoutY="188.0" />
+      <Label contentDisplay="CENTER" layoutX="178.0" layoutY="14.0" text="Choose type of measurement and enter Value and Date" />
+      <Button fx:id="AddMeasurementButton" layoutX="552.0" layoutY="68.0" mnemonicParsing="false" onAction="#addNewMeasurements" text="Add">
+         <tooltip>
+            <Tooltip text="Click to add a measurement to base" />
+         </tooltip></Button>
+      <TextField fx:id="ValueField" accessibleText="Wpisz wartość pomiaru" layoutX="199.0" layoutY="68.0" promptText="Enter a Value...">
+         <tooltip>
+            <Tooltip text="Please enter the value o temperature or pressure measurement" />
+         </tooltip></TextField>
+      <Label contentDisplay="CENTER" layoutX="253.0" layoutY="40.0" text="Value:" />
+      <Label contentDisplay="CENTER" layoutX="431.0" layoutY="40.0" text="Date:" />
+      <ChoiceBox fx:id="ChoiceType" layoutX="26.0" layoutY="68.0" prefWidth="150.0">
+         <tooltip>
+            <Tooltip text="Choose type of measurement" />
+         </tooltip></ChoiceBox>
+      <DatePicker fx:id="DateField" accessibleText="Wpisz lub wybierz datę pomiaru jaki dd.MM.rrrr" layoutX="358.0" layoutY="68.0" promptText="Enter or choose a date...">
+         <tooltip>
+            <Tooltip text="Please enter or choose date of measurement as (dd.MM.yyyy)" />
+         </tooltip></DatePicker>
+      <TableView fx:id="temperatureTable" layoutX="26.0" layoutY="134.0" prefHeight="200.0" prefWidth="162.0">
+        <columns>
+          <TableColumn fx:id="tempValueColumn" prefWidth="85.0" text="Value (C)" />
+          <TableColumn fx:id="tempDateColumn" prefWidth="76.0" text="Date:" />
+        </columns>
+         <tooltip>
+            <Tooltip text="Here are listed all of temperature measurements" />
+         </tooltip>
+      </TableView>
+      <TableView fx:id="pressureTable" layoutX="193.0" layoutY="134.0" prefHeight="200.0" prefWidth="174.0">
+        <columns>
+          <TableColumn fx:id="presValueColumn" prefWidth="85.0" text="Value (hPa)" />
+          <TableColumn fx:id="presDateColumn" prefWidth="88.0" text="Date:" />
+        </columns>
+         <tooltip>
+            <Tooltip text="Here are listed all of pressure measurements" />
+         </tooltip>
+      </TableView>
+      <Label layoutX="50.0" layoutY="111.0" text="List of temperatures:" />
+      <Label layoutX="233.0" layoutY="111.0" text="List of pressures:" />
+      <Pane layoutX="382.0" layoutY="134.0" prefHeight="200.0" prefWidth="261.0" style="-fx-background-color: #A7BEAE;">
+         <children>
+            <Label fx:id="ResultOfAnalysis" layoutX="115.0" layoutY="158.0" prefHeight="17.0" prefWidth="95.0" />
+            <ChoiceBox fx:id="ChoiceTypeForResult" layoutX="56.0" layoutY="54.0" prefWidth="150.0">
+               <tooltip>
+                  <Tooltip text="Choose the type of an analysis" />
+               </tooltip></ChoiceBox>
+            <ChoiceBox fx:id="ChoiceAnalysis" layoutX="56.0" layoutY="88.0" prefWidth="150.0">
+               <tooltip>
+                  <Tooltip text="Choose function you want to use" />
+               </tooltip></ChoiceBox>
+            <Button fx:id="ShowResultButton" layoutX="102.0" layoutY="125.0" mnemonicParsing="false" onAction="#ShowResult" text="Analyze">
+               <tooltip>
+                  <Tooltip text="Click to see a result!" />
+               </tooltip></Button>
+            <Label layoutX="61.0" layoutY="158.0" prefHeight="17.0" prefWidth="40.0" text="Result:" />
+            <Label layoutX="61.0" layoutY="37.0" text="Choose type and function:" />
+            <Label layoutX="76.0" layoutY="14.0" text="Analyze panel:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="26.0" layoutY="347.0" mnemonicParsing="false" onAction="#deleteTempMeasurement" text="Remove">
+         <tooltip>
+            <Tooltip text="Click to remove choosen record" />
+         </tooltip></Button>
+      <Button layoutX="193.0" layoutY="347.0" mnemonicParsing="false" onAction="#deletePresMeasurement" text="Remove">
+         <tooltip>
+            <Tooltip text="Click to remove choosen record" />
+         </tooltip></Button>
+   </children>
+</AnchorPane>
